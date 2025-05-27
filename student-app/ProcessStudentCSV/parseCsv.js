@@ -1,9 +1,9 @@
-const parse = require("csv-parse/lib/sync");
+const { parse } = require('csv-parse/sync');
 
-function parseCsv(csvText) {
-    return parse(csvText, {
+function parseCsv(csvString) {
+    return parse(csvString, {
         columns: true,
-        skip_empty_lines: true,
+        skip_empty_lines: true
     });
 }
 

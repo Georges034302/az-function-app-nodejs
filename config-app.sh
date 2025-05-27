@@ -2,6 +2,7 @@ RESOURCE_GROUP="student-rg"
 LOCATION="australiaeast"
 STORAGE_NAME="studentappstorage2025"
 FUNCTION_APP="student-app"
+CONTAINER_NAME="student-files"
 
 echo "🚀 Starting Azure resource group creation..."
 az group create --name $RESOURCE_GROUP --location $LOCATION
@@ -17,6 +18,12 @@ az storage account create \
   --sku Standard_LRS \
   --kind StorageV2
 echo "✅ Storage account created."
+
+echo "🚀 Creating Blob container '$CONTAINER_NAME'..."
+az storage container create \
+  --name $CONTAINER_NAME \
+  --account-name $STORAGE_NAME
+echo "✅ Blob container '$CONTAINER_NAME' created."
 
 echo "🚀 Creating Azure Function App..."
 az functionapp create \
