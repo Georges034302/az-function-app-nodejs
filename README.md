@@ -7,21 +7,21 @@ This project demonstrates a serverless solution using an Azure Blob-triggered Ja
 ## 📂 Project Structure
 
 ```
+config-app.sh                   # Bash script to configure Azure resources
+README.md                       # Project documentation
+students.csv                    # Sample CSV input
+upload.sh                       # Bash script to upload a test CSV
+
 student-app/
-│
-├── ProcessStudentCSV/             # Main Azure Function
-│   ├── function.json              # Blob trigger configuration
-│   └── index.js                   # Entry point logic
-│
-├── parseCsv.js                    # Parses CSV into JSON
-├── tableClient.js                 # Table Storage client factory
-├── insertStudent.js               # Logic to insert student into table
-├── students.csv                   # Sample CSV input
-├── config-app.sh                  # Bash script to configure Azure resources
-├── upload.sh                      # Bash script to upload a test CSV
-├── package.json                   # Node.js dependencies
 ├── .gitignore
-└── README.md
+├── host.json
+├── package.json
+└── ProcessStudentCSV/
+    ├── function.json           # Blob trigger configuration
+    ├── index.js                # Entry point logic
+    ├── insertStudent.js        # Logic to insert student into table
+    ├── parseCsv.js             # Parses CSV into JSON
+    └── tableClient.js          # Table Storage client factory
 ```
 
 ---
@@ -49,9 +49,15 @@ student-app/
 - **Node.js 18 or later**
 - **Install project dependencies**
   ```bash
-  npm install @azure/data-tables csv-parse uuid
+  cd student-app
+  npm install
   ```
 
+- **Install required NPM packages**
+  ```bash
+  cd student-app
+  npm install @azure/data-tables csv-parse uuid
+  ```
 ---
 
 ### ☁️ Azure Prerequisites
@@ -60,7 +66,7 @@ student-app/
 - **Azure Storage Account & Blob Container**
   - Automatically created via `config-app.sh`
 - **Role Assignment: Storage Blob Data Contributor**
-  Assign this role to your user to allow blob uploads:
+  Assign this role to your user to allow blob uploads (using Azure CLI or Azure Portal):
   ```bash
   az role assignment create     --assignee <your-user-object-id>     --role "Storage Blob Data Contributor"     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
   ```
@@ -69,25 +75,18 @@ student-app/
 
 ## ⚙️ Setup and Deployment
 
-### 1. Create and Initialize Project (Optional)
-```bash
-mkdir student-app && cd student-app
-func init . --worker-runtime node
-func new --name ProcessStudentCSV --template "Azure Blob Storage trigger"
-# Use blob path: student-files/{name}
-```
-
-### 2. Configure Azure Resources
+### 1. Configure Azure Resources
 Run the setup script to provision a resource group, storage account, container, and function app:
 
 ```bash
 bash config-app.sh
 ```
 
-### 3. Deploy to Azure
+### 2. Deploy to Azure
 Publish the function to Azure:
 
 ```bash
+cd student-app
 func azure functionapp publish student-app
 ```
 
