@@ -13,13 +13,12 @@ students.csv                    # Sample CSV input
 upload.sh                       # Bash script to upload a test CSV
 
 student-app/
-├── src/
-│   └── functions/
-│       ├── function.json              # Defines the Blob trigger
-│       ├── index.js                   # Contains the handler
-│       ├── parseCsv.js                # CSV parsing logic
-│       ├── insertStudent.js           # Logic to insert data into Table Storage
-│       └── tableClient.js             # Table Storage client factory
+├── ProcessStudentCSV/                 ✅ function folder
+│   ├── function.json                  ✅ trigger config
+│   ├── index.js                       ✅ blob handler
+│   ├── parseCsv.js
+│   ├── insertStudent.js
+│   └── tableClient.js
 ├── host.json
 ├── local.settings.json
 └── package.json
@@ -48,6 +47,10 @@ student-app/
   ```bash
   cd student-app
   func new --name ProcessStudentCSV --template "Azure Blob Storage trigger"
+  ```
+- **To use classic Azure Function architecture**
+  ```bash
+  project-structure.sh
   ```
 ---
 
