@@ -36,6 +36,15 @@ student-app/
 
 ---
 
+## 🚀 Initial Setup
+
+- **Create the Azure Function app project**
+  ```bash
+  func init student-app --worker-runtime node --language javascript
+  ```
+
+---
+
 ## ✅ Requirements
 
 ### 🔧 Local Prerequisites
