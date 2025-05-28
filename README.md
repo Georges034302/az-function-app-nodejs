@@ -14,13 +14,12 @@ upload.sh                       # Bash script to upload a test CSV
 
 student-app/
 ├── src/
-│   ├── functions/
-│   │   ├── index.js                   # Main blob trigger logic
-│   │   ├── parseCsv.js                # CSV parsing logic
-│   │   ├── insertStudent.js           # Logic to insert data into Table Storage
-│   │   └── tableClient.js             # Table Storage client factory
-│   └── index.js                       # Registers your functions
-├── function.json                      # Global metadata (if needed)
+│   └── functions/
+│       ├ function.json                  # Defines the Blob trigger
+│       ├── index.js                   # Contains the handler
+│       ├── parseCsv.js                # CSV parsing logic
+│       ├── insertStudent.js           # Logic to insert data into Table Storage
+│       └── tableClient.js             # Table Storage client factory
 ├── host.json
 ├── local.settings.json
 └── package.json
