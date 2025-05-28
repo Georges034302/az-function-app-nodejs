@@ -77,7 +77,9 @@ student-app/
 - **Role Assignment: Storage Blob Data Contributor**
   Assign this role to your user to allow blob uploads (using Azure CLI or Azure Portal):
   ```bash
-  az role assignment create     --assignee <your-user-object-id>     --role "Storage Blob Data Contributor"     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+  az role assignment create --assignee <your-user-object-id> \
+      --role "Storage Blob Data Contributor" \
+      --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
   ```
 
 ---
