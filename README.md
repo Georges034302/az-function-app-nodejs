@@ -46,7 +46,7 @@ student-app/
 - **Create a new Blob trigger function**
   ```bash
   cd student-app
-  func new --name ProcessStudentCSV --template "Blob trigger" --authlevel "function"
+  func new --name ProcessStudentCSV --template "Azure Blob Storage trigger"
   ```
 ---
 
