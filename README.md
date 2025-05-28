@@ -43,6 +43,11 @@ student-app/
   func init student-app --worker-runtime node --language javascript
   ```
 
+- **Create a new Blob trigger function**
+  ```bash
+  cd student-app
+  func new --name ProcessCSVBlob --template "Blob trigger" --authlevel "function"
+  ```
 ---
 
 ## ✅ Requirements
