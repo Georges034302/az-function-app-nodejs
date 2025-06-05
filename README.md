@@ -16,10 +16,10 @@ student-app/
 ├── ProcessStudentCSV/                 ✅ function folder
 │   ├── function.json                  ✅ trigger config
 │   ├── index.js                       ✅ blob handler
-│   ├── parseCsv.js
-│   ├── insertStudent.js
-│   └── tableClient.js
-├── host.json
+│   ├── parseCsv.js                    ✅ parse CSV file
+│   ├── insertStudent.js               ✅ create student record
+│   └── tableClient.js                 ✅ creates Table storage
+├── host.json                          ✅ global configuration for Function app
 ├── local.settings.json
 └── package.json
 ```
@@ -83,11 +83,13 @@ student-app/
 - **Azure Subscription**
 - **Azure Storage Account & Blob Container**
   - Automatically created via `config-app.sh`
-- **Role Assignment: Storage Blob Data Contributor**
-  Assign this role to your user to allow blob uploads (using Azure CLI or Azure Portal):
+- **Role Assignment:**
+  - `Storage Blob Data Contributor`
+  - `Storage Table Data Contributor`
+  Assign these roles to your user (using Azure CLI or Azure Portal):
   ```bash
   az role assignment create --assignee <your-user-object-id> \
-      --role "Storage Blob Data Contributor" \
+      --role "<role>" \
       --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
   ```
 
@@ -107,12 +109,12 @@ Publish the function to Azure:
 
 ```bash
 cd student-app
-func azure functionapp publish student-app
+func azure functionapp publish student-app --javascript
 ```
 
 ---
 
-## 🧪 Test the Function
+## 3. Test the Function
 
 After deployment, run the upload script to trigger the function by uploading a sample CSV file:
 
@@ -138,6 +140,6 @@ Check the Function App logs (via Azure Portal or `func azure functionapp log-str
 
 ---
 
-## 📄 License
+### 👨‍💻 Author: Georges Bou Ghantous
 
-MIT License — Feel free to use, modify, and contribute.
+This repository demonstrates Azure Functions deployment using vscode and Azure Functions core CLI.

@@ -58,6 +58,6 @@ yarn-error.log
 # node_modules
 node_modules/
 
-# vs Code workspace files
+# vscode workspace files
 .vscode/
 .vscode
