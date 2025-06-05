@@ -82,7 +82,7 @@ Replace `student-app` with your actual Azure Function App name if different.
 
 ## 7. Test the Function
 
-Upload a sample CSV to the blob container using the provided script:
+Upload a sample CSV `students.csv` to the blob container using the provided script:
 
 ```bash
 bash upload.sh
