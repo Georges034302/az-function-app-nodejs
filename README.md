@@ -48,10 +48,6 @@ student-app/
   cd student-app
   func new --name ProcessStudentCSV --template "Azure Blob Storage trigger"
   ```
-- **To use classic Azure Function architecture**
-  ```bash
-  project-structure.sh
-  ```
 ---
 
 ## ✅ Requirements
