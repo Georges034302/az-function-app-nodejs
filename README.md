@@ -136,6 +136,4 @@ Check the Function App logs (via Azure Portal or `func azure functionapp log-str
 
 ---
 
-### 👨‍💻 Author: Georges Bou Ghantous
-
-This repository demonstrates Azure Functions deployment using vscode and Azure Functions core CLI.
+<sub><i><span style="color:#B0B0B0">👤 Author: Dr. Georges Bou Ghantous</span></i></sub>
